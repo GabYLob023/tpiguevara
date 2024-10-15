@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín Digital</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="encabezado">
+            <h1>Boletín Digital</h1>
+            <nav>
+                <button class="boton-tab activo" onclick="cambiarSeccion('alumnos')">Alumnos</button>
+                <button class="boton-tab" onclick="cambiarSeccion('notas')">Notas</button>
+            </nav>
+            <div class="icono-usuario">
+                <img src="usuario.png" alt="Usuario" width="40">
+            </div>
+        </div>
+    </header>
+
+    <div id="seccionAlumnos">
+        <div class="acciones">
+            <input type="text" placeholder="Buscar alumnos..." id="buscadorAlumnos" onkeyup="buscarAlumno()">
+            <button onclick="mostrarFormularioAgregar()">Agregar Alumno</button>
+        </div>
+
+        <div id="formularioAgregar" style="display:none;">
+            <h2>Agregar Alumno</h2>
+            <input type="text" id="nombreAlumno" placeholder="Nombre">
+            <select id="gradoAlumno">
+                <option value="">Seleccione Grado</option>
+                <option value="7 3">7 3</option>
+                <option value="7 2">7 2</option>
+                <option value="7 1">7 1</option>
+            </select>
+            <input type="text" id="idAlumno" placeholder="ID">
+            <input type="text" id="materiaAlumno" placeholder="Materia">
+            <button onclick="agregarAlumno()">Guardar</button>
+            <button onclick="cerrarFormularioAgregar()">Cancelar</button>
+        </div>
+
+        <div class="lista-alumnos">
+            <div class="encabezado-lista">
+                <span>Foto</span>
+                <span>Nombre</span>
+                <span>Grado</span>
+                <span>ID</span>
+                <span>Materia</span>
+                <span>Opciones</span>
+            </div>
+            <div id="entradasAlumnos">
+            </div>
+        </div>
+    </div>
+
+    <div id="seccionNotas" style="display:none;">
+        <div class="acciones">
+            <input type="text" placeholder="Buscar notas..." id="buscadorNotas" onkeyup="buscarNota()">
+            <button onclick="mostrarFormularioAgregarNota()">Agregar Nota</button>
+        </div>
+
+        <div id="formularioAgregarNota" style="display:none;">
+            <h2>Agregar Nota</h2>
+            <select id="alumnoNota">
+                <option value="">Seleccione Alumno</option>
+            </select>
+            <input type="text" id="materiaNota" placeholder="Materia">
+            <input type="number" id="notaValor" placeholder="Nota" min="1" max="10">
+            <button onclick="agregarNota()">Guardar</button>
+            <button onclick="cerrarFormularioAgregarNota()">Cancelar</button>
+        </div>
+
+        <div class="lista-notas">
+            <div class="encabezado-lista">
+                <span>Alumno</span>
+                <span>Materia</span>
+                <span>Nota</span>
+                <span>Opciones</span>
+            </div>
+            <div id="entradasNotas">
+            </div>
+        </div>
+    </div>
+
+    <!-- Script con la lógica -->
+    <script src="script.js"></script>
+</body>
+</html>

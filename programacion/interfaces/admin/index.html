@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Panel de Administración</h1>
+            <nav>
+                <button class="tab-button active" onclick="mostrarSeccion('profesores')">Profesores</button>
+                <button class="tab-button" onclick="mostrarSeccion('alumnos')">Alumnos</button>
+                <button class="tab-button" onclick="mostrarSeccion('materias')">Materias</button>
+                <button class="tab-button" onclick="mostrarSeccion('registro')">Registro</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div id="profesores" class="seccion">
+            <h2>Gestión de Profesores</h2>
+            <button onclick="agregarProfesor()">Agregar Profesor</button>
+            <div class="profesor-lista">
+                <div class="profesor-entry">
+                    <input type="text" value="Juan Pérez" readonly>
+                    <select>
+                        <option>Presencial</option>
+                        <option>Virtual</option>
+                    </select>
+                    <button onclick="editarProfesor(this)">Editar</button>
+                    <button onclick="eliminarProfesor(this)">Eliminar</button>
+                </div>
+                <!-- Más profesores aquí -->
+            </div>
+        </div>
+
+        <div id="alumnos" class="seccion" style="display: none;">
+            <h2>Gestión de Alumnos</h2>
+            <button onclick="agregarAlumno()">Agregar Alumno</button>
+            <div class="alumno-lista">
+                <div class="alumno-entry">
+                    <input type="text" value="Cristian Licantica" readonly>
+                    <button onclick="editarAlumno(this)">Editar</button>
+                    <button onclick="eliminarAlumno(this)">Eliminar</button>
+                </div>
+                <!-- Más alumnos aquí -->
+            </div>
+        </div>
+
+        <div id="materias" class="seccion" style="display: none;">
+            <h2>Gestión de Materias</h2>
+            <button onclick="agregarMateria()">Agregar Materia</button>
+            <div class="materia-lista">
+                <div class="materia-entry">
+                    <input type="text" value="Matemática" readonly>
+                    <select>
+                        <option>7 1</option>
+                        <option>7 2</option>
+                        <option>7 3</option>
+                    </select>
+                    <input type="text" placeholder="Asignar Profesor" readonly>
+                    <button onclick="editarMateria(this)">Editar</button>
+                    <button onclick="eliminarMateria(this)">Eliminar</button>
+                </div>
+                <!-- Más materias aquí -->
+            </div>
+        </div>
+
+        <div id="registro" class="seccion" style="display: none;">
+            <h2>Registro de Usuarios</h2>
+            <form id="registro-form">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" required>
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" name="dni" required>
+                <label for="rol">Rol:</label>
+                <select id="rol" name="rol">
+                    <option value="alumno">Alumno</option>
+                    <option value="docente">Docente</option>
+                </select>
+                <button type="button" onclick="registrarUsuario()">Registrar</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
